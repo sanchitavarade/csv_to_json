@@ -1,6 +1,6 @@
 
 
-# 📊 CSV → JSON API (Node.js + PostgreSQL)
+ CSV → JSON API (Node.js + PostgreSQL)
 
 ## Overview
 
@@ -8,7 +8,7 @@ A simple Express API that uploads CSV files, parses them into nested JSON, and s
 
 ---
 
-## ✨ Features
+ Features
 
 * Custom CSV parser (handles quotes & dotted headers)
 * Streams large files line-by-line
@@ -17,7 +17,7 @@ A simple Express API that uploads CSV files, parses them into nested JSON, and s
 
 ---
 
-## ⚙️ Setup
+ Setup
 
 ```bash
 git clone <repo-url>
@@ -43,8 +43,7 @@ psql -h $PGHOST -U $PGUSER -d $PGDATABASE -f upload.sql
 ```
 
 ---
-
-## 🚀 Run
+ Run
 
 ```bash
 npm start
@@ -67,7 +66,7 @@ curl -X POST -F "file=@sample_data/sample.csv" http://localhost:3000/upload
 
 ---
 
-## 🧠 Tech Stack
+Tech Stack
 
 * Node.js + Express
 * PostgreSQL
