@@ -1,39 +1,79 @@
-# CSV → JSON API (Node + Postgres)
+Sure — here’s a **short, clean, professional README** version 👇
 
-## Summary
-This Node.js Express app accepts a CSV upload, parses lines using a custom CSV parser, converts dotted headers into nested JSON, and stores records into Postgres `public.users` table in batches. It then returns age-group distribution.
+---
 
-## Features
-- Custom CSV parser (handles quoted fields & escaped quotes).  
-- Streams file line-by-line (memory efficient).  
-- Batch inserts to Postgres (`BATCH_SIZE` env var).  
-- Computes age-group %: `<20`, `20-40`, `40-60`, `>60`.  
+# 📊 CSV → JSON API (Node.js + PostgreSQL)
 
-## Requirements
-- Node 18+ (or Node 16+)  
-- Postgres  
-- npm  
+## Overview
 
-## Setup
-1. Copy `.env.example` to `.env` and fill DB values.  
-2. Install dependencies:
+A simple Express API that uploads CSV files, parses them into nested JSON, and stores records in PostgreSQL. It streams data efficiently and returns an age-group distribution summary.
 
-   ```bash
-   npm install
-## Create DB table:
+---
+
+## ✨ Features
+
+* Custom CSV parser (handles quotes & dotted headers)
+* Streams large files line-by-line
+* Batch inserts into Postgres (`BATCH_SIZE` configurable)
+* Returns age distribution: `<20`, `20–40`, `40–60`, `>60`
+
+---
+
+## ⚙️ Setup
+
+```bash
+git clone <repo-url>
+cd csv-to-json-api
+npm install
+cp .env.example .env
+```
+
+Edit `.env` with your DB credentials:
+
+```
+PG_HOST=localhost
+PG_USER=postgres
+PG_PASSWORD=your_password
+PG_DATABASE=your_database
+BATCH_SIZE=1000
+```
+
+Create the table:
+
 ```bash
 psql -h $PGHOST -U $PGUSER -d $PGDATABASE -f upload.sql
 ```
 
-## Start server:
+---
+
+## 🚀 Run
+
 ```bash
 npm start
 ```
 
-Example using curl:
+Upload a CSV:
+
 ```bash
 curl -X POST -F "file=@sample_data/sample.csv" http://localhost:3000/upload
 ```
 
+**Response:**
 
+```json
+{
+  "total_records": 200,
+  "age_distribution": { "<20": 10, "20-40": 70, "40-60": 15, ">60": 5 }
+}
+```
+
+---
+
+## 🧠 Tech Stack
+
+* Node.js + Express
+* PostgreSQL
+* dotenv
+
+---
 
