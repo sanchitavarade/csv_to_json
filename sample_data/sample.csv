@@ -1,0 +1,5 @@
+name.firstName,name.lastName,age,address.street,address.city,notes
+"Aarav","Mehra",32,"789 Bangalore","Bangalore","loves coffee"
+"Priya","Singh","28","101 Hyderabad","Hyderabad","enjoys hiking"
+"Aditya","","22","202 Kolkata","Kolkata",""
+,Unknown,55,"Some Rd","Chennai","no firstname provided"
