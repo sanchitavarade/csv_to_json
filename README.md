@@ -1,6 +1,4 @@
-Sure — here’s a **short, clean, professional README** version 👇
 
----
 
 # 📊 CSV → JSON API (Node.js + PostgreSQL)
 
